@@ -1,0 +1,15 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+---
+
+# BeingBhavin.in
+
+Hello. I am Bhavin Patel a DevOps Engineer From India.
+
+## What's in it?
+
+I have created this website to document my ideas and brain thoughts. If anyone can learn from this site then i will happy to share more of this. 
+This is just to get started with my website. I will soon start to publish new pages.
