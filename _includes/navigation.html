@@ -1,27 +1,31 @@
+{% if page.url == "/" %}
 <header class="h-screen flex items-center">
-    <!--  bg-gray-400/10 -->
-    <div class="container md:mx-auto block">
+{% else %}
+<header class="h-20 fixed m-0 p-0 w-screen top-0">
+{% endif %}
+
+<!--  bg-gray-400/10 -->
+    <div class="container md:mx-auto {% if page.url != "/" %} items-center flex justify-between {% else %} block {% endif %}">
         <div class="md:text-left text-center text-white">
-            <h1 class="md:text-8xl text-4xl font-medium pt-5 block">
-                <a href="/src/index.html">
+            <h1 class="{% if page.url == "/" %} md:text-8xl block  pt-5 {% endif %}text-4xl font-medium">
+                <a href="/">
                     Bhavin Patel
                 </a>
             </h1>
-            <h2 class="md:text-3xl pt-3">I'm a automation enthusiastic <span class="border-b-4 border-red-400">Devops Engineer</span> from India</h2>
+            <h2 class="md:text-3xl pt-3 {% if page.url != "/" %} hidden {% endif %}">I'm a automation enthusiastic <span class="border-b-4 border-red-400">Devops Engineer</span> from India</h2>
         </div>
             <div>
                 <nav class="flex text-white space-x-4 md:justify-start justify-center items-center mt-2">
-                    <a href="/src/index.html" class="px-2 py-2 md:text-2xl font-light hover:text-red-400 hover:underline rounded-md">Home</a>
-                    <a href="/src/resume.html" class="px-2 py-2 md:text-2xl font-light hover:text-red-400 hover:underline rounded-md">Resume</a>            
-                    <a href="/src/blogs.html" class="px-2 py-2 md:text-2xl font-light hover:text-red-400 hover:underline rounded-md">Blogs</a>
-                    <a href="/src/about.html" class="px-2 py-2 md:text-2xl font-light hover:text-red-400 hover:underline rounded-md">About</a>
-                </nav>
+                    {% for link_data in site.data.navigation %}
+                    <a href="{{ "{{site.url}}{{ link_data.link }}" | relative_url }}" class="px-2 py-2 md:text-2xl font-light hover:text-red-400 hover:underline rounded-md">{{ link_data.name}}</a>
+                    {% endfor %}
+               </nav>
             </div>
-            <div class="flex mt-15 space-x-4 px-3 mt-2 md:justify-start justify-center text-white">
+            <!-- <div class="flex mt-15 space-x-4 px-3 mt-2 md:justify-start justify-center text-white {% if page.url != "/" %} hidden {% endif %}">
                 <a href="#" class="text-base hover:bg-gray-600/40 hover:rounded-lg p-2 hover:text-red-400"><i class="bi bi-linkedin"></i></a>
-                <!-- <a href="#" class="text-base hover:bg-gray-600/40 hover:rounded-lg p-2 hover:text-red-400"><i class="bi bi-instagram"></i></a> -->
+                <a href="#" class="text-base hover:bg-gray-600/40 hover:rounded-lg p-2 hover:text-red-400"><i class="bi bi-instagram"></i></a> 
                 <a href="#" class="text-base hover:bg-gray-600/40 hover:rounded-lg p-2 hover:text-red-400"><i class="bi bi-twitter-x"></i></a>
                 <a href="#" class="text-base hover:bg-gray-600/40 hover:rounded-lg p-2 hover:text-red-400"><i class="bi bi-github"></i></a>
-            </div>
+            </div> -->
     </div>
 </header>
